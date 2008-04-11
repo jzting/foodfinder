@@ -1,0 +1,20 @@
+<% form_remote_tag :html => { :name => 'search', :id => 'search-details' }, :url => {  :action => :search } do %>
+IM HUNGRY AN WANTS &nbsp;
+<%= text_field :search, :category, :autocomplete => "off" %>
+	<script type="text/javascript">
+	$('search_category').focus();
+	</script>
+
+<div class="auto_complete" id="category_list" style="display:none"></div>
+
+ &nbsp;NEAR &nbsp; <input type="text" id="search_location" name="search[location]">
+&nbsp;&nbsp;&nbsp;
+
+<script type="text/javascript">
+new Autocompleter.Local('search_category', 'category_list', ['Afghani', 'African', 'American (New)', 'American (Traditional)', 'Argentine', 'Asian Fusion', 'Barbeque', 'Brazilian', 'Breakfast & Brunch', 'British', 'Buffets', 'Burgers', 'Burmese', 'Cajun/Creole', 'Cambodian', 'Caribbean', 'Chicken Wings', 'Chinese', 'Dim Sum', 'Creperies', 'Cuban', 'Delis', 'Diners', 'Ethiopian', 'Fast Food', 'Filipino', 'Fondue', 'Food Stands', 'French', 'German', 'Gluten-Free', 'Greek and Mediterranean', 'Halal', 'Hawaiian', 'Himalayan/Nepalese', 'Hot Dogs', 'Indian/Pakistani', 'Indonesian', 'Irish', 'Italian', 'Japanese', 'Korean', 'Kosher', 'Latin American', 'Live/Raw Food', 'Malaysian', 'Mexican', 'Middle Eastern', 'Mongolian', 'Moroccan', 'Pizza', 'Russian', 'Sandwiches', 'Scandinavian', 'Seafood', 'Singaporean', 'Soul Food', 'Southern', 'Spanish/Basque', 'Steakhouses', 'Sushi Bars', 'Taiwanese', 'Tapas Bars', 'Tex-Mex', 'Thai', 'Turkish', 'Vegan', 'Vegetarian', 'Vietnamese'], {});
+</script>
+
+<%= submit_tag 'DECIDE!', :id => "search", :onclick => "toggleLoader(1)" %>
+<div id="loading"><%= image_tag 'ajax-loader.gif', :id => 'spinner', :style => 'display:none;' %></div>
+<div id="results" style="display:none"></div>
+<% end %>
